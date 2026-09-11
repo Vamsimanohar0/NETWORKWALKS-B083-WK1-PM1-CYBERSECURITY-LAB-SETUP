@@ -57,6 +57,9 @@ The lab runs on an isolated NAT Network so that Kali Linux (the attacking machin
 ### Kali Manual IPv4 Settings
 ![Kali IPv4 settings](3-screenshot-kali-ipv4-settings.png)
 
+### Kali Running
+![alt text](image.png)
+
 ---
 
 ## 🔎 Verification Commands
