@@ -63,10 +63,40 @@ The lab runs on an isolated NAT Network so that Kali Linux (the attacking machin
 
 | Test                 | Command                | Expected Result       |
 |----------------------|--------------------------|------------------------|
-| Check IP address      | `ip a`                   | Shows 10.0.0.2/24 on eth0 |
-| Test gateway           | `ping 10.0.0.1`          | Successful replies     |
-| Test internet          | `ping 8.8.8.8`           | Successful replies     |
-| Test DNS resolution    | `ping google.com`        | Resolves and replies   |
+| Check IP address      | `ip a`                   | eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:f5:21:dd brd ff:ff:ff:ff:ff:ff
+    inet 10.0.0.2/24 brd 10.0.0.255 scope global noprefixroute eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::c979:f00e:3ca0:ffa1/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever |
+| Test gateway           | `ping 10.0.0.1`          | PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.
+64 bytes from 10.0.0.1: icmp_seq=1 ttl=64 time=28.7 ms
+64 bytes from 10.0.0.1: icmp_seq=2 ttl=64 time=3.99 ms
+64 bytes from 10.0.0.1: icmp_seq=3 ttl=64 time=1.32 ms
+^C
+--- 10.0.0.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2176ms
+rtt min/avg/max/mdev = 1.320/11.354/28.748/12.347 ms
+     |
+| Test internet          | `ping 8.8.8.8`           | PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.
+64 bytes from 10.0.0.1: icmp_seq=1 ttl=64 time=28.7 ms
+64 bytes from 10.0.0.1: icmp_seq=2 ttl=64 time=3.99 ms
+64 bytes from 10.0.0.1: icmp_seq=3 ttl=64 time=1.32 ms
+^C
+--- 10.0.0.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2176ms
+rtt min/avg/max/mdev = 1.320/11.354/28.748/12.347 ms
+     |
+| Test DNS resolution    | `ping google.com`        | ping google.com
+PING google.com (142.251.221.110) 56(84) bytes of data.
+64 bytes from cgk03s03-in-f14.1e100.net (142.251.221.110): icmp_seq=1 ttl=64 time=42.2 ms
+64 bytes from cgk03s03-in-f14.1e100.net (142.251.221.110): icmp_seq=2 ttl=64 time=74.5 ms
+64 bytes from cgk03s03-in-f14.1e100.net (142.251.221.110): icmp_seq=3 ttl=64 time=71.7 ms
+^C
+--- google.com ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2007ms
+rtt min/avg/max/mdev = 42.155/62.781/74.481/14.629 ms
+   |
 
 ---
 
